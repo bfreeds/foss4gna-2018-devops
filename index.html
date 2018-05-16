@@ -138,7 +138,8 @@
 					<section>
 						<h3>Flow</h3>
 						<blockquote cite="DevOps Handbook">
-							Our goal is to decrease the amount of time required for changes to be deployed into production and to <strong>increase the reliability and quality of those services</strong>.
+							&ldquo;Our goal is to decrease the amount of time required for changes to be deployed into production and to <strong>increase the reliability and quality of those services</strong>.&rdquo;
+							<footer><p style="font-size: 0.5em;"><em>Gene Kim, The Devops Handbook: How to Create World-Class Agility, Reliability, & Security in Technology Organizations (Portland, OR: IT Revolution Press, LLC, 2016).</em></p></footer>
 						</blockquote>
 					</section>
 
@@ -177,7 +178,8 @@
 					<section>
 						<h3>Feedback</h3>
 						<blockquote cite="DevOps Handbook">
-							Second Way describes the principles that enable the reciprocal fast and constant feedback from right to left at all stages of the value stream. Our goal is to create an ever <strong>safer and more resilient</strong> system of work.
+							&ldquo;Second Way describes the principles that enable the reciprocal fast and constant feedback from right to left at all stages of the value stream. Our goal is to create an ever <strong>safer and more resilient</strong> system of work.&rdquo;
+							<footer><p style="font-size: 0.5em;"><em>Gene Kim, The Devops Handbook: How to Create World-Class Agility, Reliability, & Security in Technology Organizations (Portland, OR: IT Revolution Press, LLC, 2016).</em></p></footer>
 						</blockquote>
 					</section>
 					<section>
@@ -194,7 +196,8 @@
 					<section>
 						<h3>Continual Learning & Experimentation</h3>
 						<blockquote cite="DevOps Handbook">
-							Third Way focuses on creating a culture of continual learning and experimentation. These are the principles that enable constant creation of individual knowledge, which is then turned into team and organizational knowledge.
+							&ldquo;Third Way focuses on creating a culture of continual learning and experimentation. These are the principles that enable constant creation of individual knowledge, which is then turned into team and organizational knowledge.&rdquo;
+							<footer><p style="font-size: 0.5em;"><em>Gene Kim, The Devops Handbook: How to Create World-Class Agility, Reliability, & Security in Technology Organizations (Portland, OR: IT Revolution Press, LLC, 2016).</em></p></footer>
 						</blockquote>
 					</section>
 				</section>
@@ -226,7 +229,7 @@
 
 					<!-- complexity -->
 					<section>
-						<h3>Where does complexity come from?</h3>
+						<h3>What creates complexity?</h3>
 					</section>
 					<section>
 						<h3>State</h3>
@@ -234,14 +237,32 @@
 					</section>
 					<section>
 						<h3>State</h3>
-						<block>
-							&ldquo; &rdquo;
-						</block>
-
+						<p>Examples of infrastructure state:</p>
+						<ul>
+							<li class="fragment">Which version of PostgreSQL is installed?</li>
+							<li class="fragment">How many servers are running?</li>
+							<li class="fragment">Which version(s) of Python and GDAL are installed?</li>
+						</ul>
 					</section>
 					<!-- immutability -->
 					<section>
-
+						<h2>State Simplified:  Immutability</h2>
+						<img src="images/immutable-afro.jpg" alt="yearbook photo">
+					</section>
+					<section>
+						<h3>Frontend Immutability: Redux</h3>
+						<img src="images/redux.png" alt="Redux">
+						<blockquote>
+							<footer><a href="https://medium.com/react-weekly/embracing-immutable-architecture-dc04e3f08543">Embracing Immutable Architecture</a></footer>
+						</blockquote>
+					</section>
+					<section>
+						<h3>Infrastructure Immutability</h3>
+						<ul>
+							<li class="fragment">Servers & Infrastructure as cattle, not pets</li>
+							<li class="fragment">Don't modify/mutate - destroy and create new</li>
+							<li class="fragment">Make persistent state (PostGIS) explicit and transparent</li>
+						</ul>
 					</section>
 
 				</section>
@@ -256,7 +277,10 @@
 
 					<!-- abstraction -->
 					<section>
-						<h1>Abstraction</h1>
+						<ol>
+							<li>Abstraction</li>
+							<li>State Management</li>
+						</ol>
 					</section>
 					<section>
 						<p>Tools simplify by creating useful abstractions</p>
@@ -272,6 +296,11 @@
 						<img src="images/terraform_paths.svg" alt="terraform-diagram">
 					</section>
 					<section>
+						<h2>Terraform State Managment</h2>
+						<p><em>Infrastructure's state stored centrally (AWS S3) in JSON</em></p>
+						<img src="images/terraform-state.png" alt="Terraform State">
+					</section>
+					<section>
 						<p>Terraform's Place in Value Stream</p>
 						<img style="max-height: 60vh;" src="images/terraform_valuestream.png" alt="Terraform">
 						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
@@ -283,6 +312,10 @@
 
 					<section data-background-image="images/container-ship.jpg">
 						<h2 style="background-color: rgba(243, 235, 174, 0.8);">Docker</h2>
+					</section>
+					<section>
+						<h3>Adding Complexity?</h3>
+						<img src="images/docker-tooling.png" alt="docker complexity">
 					</section>
 					<section>
 						<blockquote cite="http://shop.oreilly.com/product/0636920039846.do" style="text-align: left; font-size: 1em">
@@ -297,12 +330,27 @@
 						<img src="images/docker-abstraction.svg" alt="docker-diagram">
 					</section>
 					<section>
-						<p>Docker's Place in Value Stream</p>
-						<img style="max-height: 60vh;" src="images/docker_valuestream.png" alt="Docker value stream">
-						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+						<h3>Simplified Example: Install & Run:</h3>
+						<ul>
+							<li class="fragment">PostGIS: "docker run postgis"</li>
+							<li class="fragment">GeoServer: "docker run geoserver"</li>
+							<li class="fragment">Pelias: "docker run pelias"</li>
+							<li class="fragment">Enterprise GIS stack: "docker-compose up"</li>
+							<li class="fragment">Web application stack: "docker-compose up"</li>
+						</ul>
 					</section>
 					<section>
 						<div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-parent="false" data-embed-live="false" data-embed-uuid="5ed7dff1-c27a-4e26-89f1-a9d58acf5fd0" data-embed-created="2018-05-15T17:17:55.124Z"><a href="https://www.reddit.com/r/devops/comments/8j9yrn/docker_is_the_dangerous_gamble_which_we_will/dyz1gc8/">Comment</a> from discussion <a href="https://www.reddit.com/r/devops/comments/8j9yrn/docker_is_the_dangerous_gamble_which_we_will/">Docker is the dangerous gamble which we will regret</a>.</div><script async src="https://www.redditstatic.com/comment-embed.js"></script>
+					</section>
+					<section>
+						<h2>Docker State Managment</h2>
+						<p><em>Container state explicit & transparent with Volumes</em></p>
+						<img src="images/docker-state.png" alt="Docker State">
+					</section>
+					<section>
+						<p>Docker's Place in Value Stream</p>
+						<img style="max-height: 60vh;" src="images/docker_valuestream.png" alt="Docker value stream">
+						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
 					</section>
 
 					<section data-background-image="images/Screenshot-2018-5-15-https-kubernetes-io.png">
@@ -319,7 +367,8 @@
 						<img style="max-height: 60vh;" src="images/Dublin_Philharmonic_Orchestra_performing_Tchaikovsky's_Symphony_No_4_in_Charlotte,_North_Carolina.jpg" alt="Dublin Philharmonic">
 					</section>
 					<section>
-						<p>Built to scale up or down</p>
+						<p>Built to scale</p>
+						<p class="fragment">Scales down or up</p>
 						<img src="images/smallest-violin.gif" alt="Mr. Krabs GIF">
 					</section>
 
@@ -343,19 +392,44 @@
 						<h3 class="fragment">Devops 4 FOSS4G?!</h3>
 					</section>
 					<section>
-						<h3>Open Source Software</h3>
+						<img src="images/Screenshot-2018-5-16-ian-dees-nextzen.png" alt="Nextzen">
+					</section>
+					<section data-background-image="images/meech-protocols.png">
+					</section>
+					<section>
+						<div>
+							<blockquote class="fragment" cite="https://medium.com/@randyme/mapping-out-protocols-39a4eb16c466">
+								&ldquo;By design, we built everything to survive the death of the company.&rdquo;
+							</blockquote>
+							<blockquote class="fragment" cite="https://medium.com/@randyme/mapping-out-protocols-39a4eb16c466">
+								&ldquo;I spent December and January helping API customers move off our centralized service that was to shut down on January 31. This truly sucked and I never want to do it again. Diana and I will avoid it this time by avoiding centralized services entirely and building a protocol that...can’t ever be shut down.&rdquo;
+								<footer><p style="font-size: 0.5em;"><em><a style="background-color: rgba(243, 235, 174, 0.8);" href="https://medium.com/@randyme/mapping-out-protocols-39a4eb16c466">Randy Meech, Mapping out Protocols, 4/12/2018</a></em></p></footer>
+							</blockquote>
+						</div>
+					</section>
+					<section>
+						<h3>The Third Way: Continual Learning</h3>
+						<blockquote style="font-size: 0.6em;">
+							&ldquo;When new learnings are discovered locally, there must also be some mechanism to enable the rest of the [community] to use and benefit from that knowledge. In other words, when teams or individuals have experiences that create expertise, our goal is to convert that tacit knowledge (i.e., knowledge that is difficult to transfer to another person by means of writing it down or verbalizing) into explicit, codified knowledge, which becomes someone else’s expertise through practice.&rdquo;
+							<footer><p style="font-size: 0.5em;"><em>Gene Kim, The Devops Handbook: How to Create World-Class Agility, Reliability, & Security in Technology Organizations (Portland, OR: IT Revolution Press, LLC, 2016).</em></p></footer>
+						</blockquote>
+					</section>
+					<section data-background-image="images/rock-applause.gif">
+						<h1>Thank you, Mapzen</h1>
+					</section>
+					<section>
+						<h3>FOSS4G</h3>
 						<ul>
 							<li class="fragment"><strong>The What (development):</strong>  the software itself (PostGIS, GeoServer, Pelias, Tegola, etc.)</li>
 							<li class="fragment"><strong>The How (operations):</strong>  the process of creating, operating, and maintaining a software/information system</li>
-							<li class="fragment"><strong>The Why:</strong>  the unique use cases - the value produced by mapping software</li>
+							<li class="fragment"><strong>The Why:</strong>  the value of mapping software - maps, data, geo services</li>
 						</ul>
 					</section>
-
-				</section>
-
-				<!-- ACTION -->
-				<!-- Take the plunge to learn -->
-				<section>
+					<section>
+						<h3>Thanks FOSS4G!</h3>
+						<div><a href="https://twitter.com/brandynfriedly">@brandynfriedly</a></div>
+						<div><a href="https://bfreeds.github.io/foss4gna-2018-devops/">https://bfreeds.github.io/foss4gna-2018-devops/</a></div>
+					</section>
 
 				</section>
 			</div>
