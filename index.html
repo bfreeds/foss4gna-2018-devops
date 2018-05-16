@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>Devops - FOSS4GNA 2018</title>
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/foss4gna.css">
+
+		<!-- Theme used for syntax highlighting of code -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				<!-- INTRODUCTION -->
+				<!-- The speaker should first clarify their specific goal or desired outcome. The more specific and clearly defined the outcome, the more powerful the lecture will be. -->
+				<!-- Cover Slide -->
+				<section>
+					<h3>Automated Map Stacks:</h3>
+					<h3>Devops & Infrastructure-as-Code</h3>
+					<hr>
+					<a href="https://twitter.com/brandynfriedly">@brandynfriedly</a>
+					<p class="green2">FOSS4GNA St. Louis</p>
+					<p class="green2">May 16, 2018</p>
+				</section>
+				<section>
+					<h1>Goals</h1>
+					<ol>
+						<li class="fragment">What is Devops?</li>
+						<li class="fragment">Why Devops?</li>
+						<li class="fragment">Introduce Devops Toolbelt</li>
+						<li class="fragment">Benefits for FOSS4G Community</li>
+					</ol>
+				</section>
+
+				<!-- ATTENTION -->
+				<!-- Arrest attention immediately with a startling statement, a probing question or moving story. -->
+				<section>
+					<section data-background-image="images/Screenshot-2018-5-13-NYPL-Labs.png">
+					</section>
+					<section data-background-image="images/mapzen-shutdown.png">
+					</section>
+					<section>
+						<img src="images/dees-mapzen-contribution-os.png" alt="Ian Dees Mapzen Plea">
+					</section>
+					<section data-background-image="images/12-seconds-later.jpg">
+					</section>
+					<section data-background-image="images/Screenshot-2018-5-14-geocode-earth.jpg">
+						<img style="opacity: 0.9" class="fragment" src="images/Screenshot-2018-5-14-julian-simoni.png" alt="">
+					</section>
+				</section>
+
+
+				<!-- NEED -->
+				<section>
+					<blockquote cite="http://shop.oreilly.com/product/0636920039846.do" style="text-align: left; font-size: 0.6em">
+						&ldquo;<strong>40–90% of the total costs of a system are incurred after birth.</strong>.
+						<footer><p style="font-size: 0.5em;"><em>Betsy Beyer et al., eds., Site Reliability Engineering: How Google Runs Production Systems, First edition, April 2016 (Sebastopol, CA: Oreilly, 2016).</em></p></footer>
+					</blockquote>
+				</section>
+
+				<!-- SATISFACTION -->
+				<!-- Show how the need can be met or satisfied. You can implant conviction by proving that you have the answer to all known objections. -->
+
+				<!-- what is devops -->
+				<section>
+					<section>
+						<h1>Devops</h1>
+						<h1 class="fragment">...what?</h1>
+					</section>
+					<section>
+						<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1420_RC05/embed_loader.js"></script>
+					  <script type="text/javascript">
+					    trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"devops","geo":"","time":"2004-01-01 2018-05-15"}],"category":0,"property":""}, {"exploreQuery":"date=all&q=devops","guestPath":"https://trends.google.com:443/trends/embed/"});
+					  </script>
+					</section>
+					<!-- Effective Devops Definition -->
+					<section>
+							<h3>Devops Defined</h3>
+							<div style="float: right; max-width: 500px">
+								<blockquote cite="http://shop.oreilly.com/product/0636920039846.do" style="text-align: left; font-size: 0.6em">
+									&ldquo;Devops is a <strong>way of thinking and a way of working</strong>.
+									<span class="fragment">It is a framework for sharing stories and developing empathy, enabling people and teams to practice their crafts in effective and lasting ways.</span>
+									<span class="fragment">It is part of the <strong>cultural weave</strong> that shapes how we work and why.</span>
+									<span class="fragment">Many people think about devops as specific tools like Chef or Docker, but <strong>tools alone are not devops</strong>.</span>
+									<span class="fragment">What makes tools 'devops' is the manner of their use, not fundamental characteristics of the tools themselves.</span>&rdquo;
+									<footer><a href="http://shop.oreilly.com/product/0636920039846.do">—Jennifer Davis & Ryn Daniels, 2016</a></footer>
+								</blockquote>
+							</div>
+							<div>
+								<img src="images/effective_devops.jpg" alt="Effective Devops Book">
+							</div>
+					</section>
+					<!-- Devops Handbook 3 Ways -->
+					<section>
+						<div style="float: left; max-width: 1/6vw">
+							<img src="images/phoenix-project-cover.png" alt="Phoenix Project">
+							<p>2013</p>
+						</div>
+						<div style="float: left; max-width: 1/6vw">
+							<img src="images/devops-handbook-gene-kim_small.png" alt="Devops Handbook">
+							<p>2016</p>
+						</div>
+						<div style="float: right; max-width: 1/8vw;" class="fragment">
+							<p>The Three Ways</p>
+							<ol>
+								<li class="fragment">Flow</li>
+								<li class="fragment">Feedback</li>
+								<li class="fragment">Continual Learning</li>
+							</ol>
+						</div>
+					</section>
+					<!-- 1st way: flow -->
+					<section>
+						<h3>Flow</h3>
+						<blockquote cite="DevOps Handbook">
+							Our goal is to decrease the amount of time required for changes to be deployed into production and to increase the reliability and quality of those services.
+						</blockquote>
+					</section>
+
+					<!-- value stream -->
+					<section>
+						<h3>Value Stream</h3>
+						<img style="max-height: 60vh;" src="images/valuestream.png" alt="Eye of Providence">
+						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+					</section>
+					<section>
+						<h3>Value Stream</h3>
+						<img style="max-height: 60vh;" src="images/valuestream_maps.png" alt="Maps Value Stream">
+						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+					</section>
+
+					<!-- continuous delivery -->
+					<section>
+							<h3>Deployment Pipeline</h3>
+							<p>No Pipeline</p>
+							<img style="max-height: 60vh" src="images/1280px-Hoover_dam_from_air_wikipedia.jpg" alt="Hoover Dam">
+						</section>
+						<section>
+							<h3>Deployment Pipeline</h3>
+							<p>Some Pipeline</p>
+							<img src="images/panamacanal.gif" alt="Panama Canal">
+						</section>
+						<section>
+							<h3>Deployment Pipeline</h3>
+							<p>Automated Pipeline (Continuous Delivery)</p>
+							<img style="max-height: 60vh" src="images/shutterstock_6932572-2.jpg" alt="Missippi Grain">
+						</section>
+
+					<!-- 2nd way: feedback -->
+					<section>
+						<h3>Feedback</h3>
+						<blockquote cite="DevOps Handbook">
+							Second Way describes the principles that enable the reciprocal fast and constant feedback from right to left at all stages of the value stream. Our goal is to create an ever safer and more resilient system of work.
+						</blockquote>
+					</section>
+					<section>
+					</section>
+					<!-- 3rd way: continual learning -->
+					<section>
+						<h3>Continual Learning & Experimentation</h3>
+						<blockquote cite="DevOps Handbook">
+							Third Way focuses on creating a culture of continual learning and experimentation. These are the principles that enable constant creation of individual knowledge, which is then turned into team and organizational knowledge.
+						</blockquote>
+					</section>
+				</section>
+
+				<!-- why devops -->
+				<section>
+					<section>
+						<h1>Devops</h1>
+						<h1 class="fragment">...why?</h1>
+					</section>
+
+					<!-- simplicity -->
+					<section data-background-image="images/604px-Mona_Lisa,_by_Leonardo_da_Vinci,_from_C2RMF_retouched.jpg">
+						<h1>Simplicity</h1>
+						<blockquote style="background-color: rgba(243, 235, 174, 0.8);" cite="https://www.brainyquote.com/quotes/leonardo_da_vinci_107812">
+							&ldquo;Simplicity is the ultimate sophistication.&rdquo;<span class="fragment">*</span>
+							<footer><p>—Leonardo da Vinci</p></footer>
+						</blockquote>
+					</section>
+					<section>
+						<blockquote cite="Effective DevOps" style="text-align: left; font-size: 1em">
+							&ldquo;The price of reliability is the pursuit of the utmost simplicity.&rdquo;
+							<footer>
+								<a href="https://www.cs.fsu.edu/~engelen/courses/COP4610/hoare.pdf">—C.A.R. Hoare, 1980 Turing Lecture.</a>
+								<p style="font-size: 0.5em;">As quoted in <em>Betsy Beyer et al., eds., Site Reliability Engineering: How Google Runs Production Systems, First edition, April 2016 (Sebastopol, CA: Oreilly, 2016).</em></p>
+							</footer>
+						</blockquote>
+					</section>
+
+					<!-- complexity -->
+					<section>
+						<h3>Where does complexity come from?</h3>
+					</section>
+					<section>
+						<h3>State</h3>
+						<img style="max-height: 60vh" src="images/missouri.png" alt="">
+					</section>
+					<section>
+						<h3>State</h3>
+						<block>
+							&ldquo; &rdquo;
+						</block>
+
+					</section>
+					<!-- immutability -->
+					<section>
+
+					</section>
+
+				</section>
+
+				<!-- how devops -->
+				<section>
+
+					<section>
+						<h1>Devops</h1>
+						<h1 class="fragment">...how?</h1>
+					</section>
+
+					<!-- abstraction -->
+					<section>
+						<h1>Abstraction</h1>
+					</section>
+					<section>
+						<p>Tools simplify by creating useful abstractions</p>
+						<img src="images/gdal-diagram2.svg" alt="gdal-diagram">
+					</section>
+
+					<section>
+						<h2>Terraform</h2>
+						<img src="images/Screenshot-2018-5-15-Terraform-by-HashiCorp.png" alt="terraform-screenshot">
+					</section>
+					<section>
+						<p>Terraform abstracts infrastructure & cloud providers</p>
+						<img src="images/terraform_paths.svg" alt="terraform-diagram">
+					</section>
+					<section>
+						<p>Terraform's Place in Value Stream</p>
+						<img style="max-height: 60vh;" src="images/terraform_valuestream.png" alt="Terraform">
+						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+					</section>
+					<section>
+						<p>Example:  Create a Kubernetes Cluster on Google Compute Engine</p>
+						<img src="images/Screenshot-2018-5-15-Google-google_container_cluster-Terraform-by-HashiCorp.png" alt="terraform-diagram">
+					</section>
+
+					<section data-background-image="images/container-ship.jpg">
+						<h2 style="background-color: rgba(243, 235, 174, 0.8);">Docker</h2>
+					</section>
+					<section>
+						<blockquote cite="http://shop.oreilly.com/product/0636920039846.do" style="text-align: left; font-size: 1em">
+							&ldquo;Docker provides what is called an abstraction.
+							<span class="fragment">Abstractions allow you to work with complicated things in simplified terms.</span>
+							<span class="fragment">So, in the case of Docker, instead of focusing on all of the complexities and specifics associated with installing an application, all we need consider is what software we’d like to install.</span>&rdquo;
+							<footer><a href="https://www.manning.com/books/docker-in-action">Jeff Nickoloff, Docker in Action (Shelter Island, NY: Manning Publications, Co, 2016).</a></footer>
+						</blockquote>
+					</section>
+					<section>
+						<p>Containers abstract software & applications</p>
+						<img src="images/docker-abstraction.svg" alt="docker-diagram">
+					</section>
+					<section>
+						<p>Docker's Place in Value Stream</p>
+						<img style="max-height: 60vh;" src="images/docker_valuestream.png" alt="Docker value stream">
+						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+					</section>
+					<section>
+						<div class="reddit-embed" data-embed-media="www.redditmedia.com" data-embed-parent="false" data-embed-live="false" data-embed-uuid="5ed7dff1-c27a-4e26-89f1-a9d58acf5fd0" data-embed-created="2018-05-15T17:17:55.124Z"><a href="https://www.reddit.com/r/devops/comments/8j9yrn/docker_is_the_dangerous_gamble_which_we_will/dyz1gc8/">Comment</a> from discussion <a href="https://www.reddit.com/r/devops/comments/8j9yrn/docker_is_the_dangerous_gamble_which_we_will/">Docker is the dangerous gamble which we will regret</a>.</div><script async src="https://www.redditstatic.com/comment-embed.js"></script>
+					</section>
+
+					<section data-background-image="images/Screenshot-2018-5-15-https-kubernetes-io.png">
+						<div style="background-color: rgba(243, 235, 174, 1);">
+						<h2>Kubernetes</h2>
+						<blockquote cite="http://shop.oreilly.com/product/0636920039846.do" style="text-align: left; font-size: 0.6em">
+							&ldquo;...is an open-source system for automating deployment, scaling, and management of containerized applications.&rdquo;
+						</blockquote>
+						</div>
+					</section>
+					<!-- orchestrator metaphor -->
+					<section>
+						<p>Kubernetes as container orchestrator</p>
+						<img style="max-height: 60vh;" src="images/Dublin_Philharmonic_Orchestra_performing_Tchaikovsky's_Symphony_No_4_in_Charlotte,_North_Carolina.jpg" alt="Dublin Philharmonic">
+					</section>
+					<section>
+						<p>Built to scale up or down</p>
+						<img src="images/smallest-violin.gif" alt="Mr. Krabs GIF">
+					</section>
+
+					<!-- miles davis -->
+					<section>
+						<img src="images/Miles_Davis_(Antibes_Juan-les-Pins_1963).jpg" alt="Miles Davis">
+					</section>
+
+				</section>
+
+				<!-- foss4g -->
+				<section>
+					<section>
+						<h1>Devops</h1>
+						<h1 class="fragment">...4 FOSS4G?</h1>
+					</section>
+					<section>
+						<h3>Open Source Software</h3>
+						<ul>
+							<li class="fragment"><strong>The What (development):</strong>  the software itself (PostGIS, GeoServer, Tegola Tile Server, etc.)</li>
+							<li class="fragment"><strong>The How (operations):</strong>  the process of creating, operating, and maintaining a software/information system</li>
+							<li class="fragment"><strong>The Why:</strong>  the unique use cases - the value produced by mapping software</li>
+						</ul>
+					</section>
+
+				</section>
+
+				<!-- ACTION -->
+				<!-- Take the plunge to learn -->
+				<section>
+
+				</section>
+			</div>
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+			// More info about config & dependencies:
+			// - https://github.com/hakimel/reveal.js#configuration
+			// - https://github.com/hakimel/reveal.js#dependencies
+			Reveal.initialize({
+				dependencies: [
+					{ src: 'plugin/markdown/marked.js' },
+					{ src: 'plugin/markdown/markdown.js' },
+					{ src: 'plugin/notes/notes.js', async: true },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+				]
+			});
+		</script>
+	</body>
+</html>
