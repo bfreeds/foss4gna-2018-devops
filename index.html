@@ -34,12 +34,26 @@
 					<a href="https://twitter.com/brandynfriedly">@brandynfriedly</a>
 					<p class="green2">FOSS4GNA St. Louis</p>
 					<p class="green2">May 16, 2018</p>
+					<aside class="notes">
+						<p>Good afternoon</p>
+						<p>Thank you all for making it to this talk and the conference organizers for the hard work into putting this together</p>
+						<p>as we are in the conference's home stretch - and after that heavy lunch</p>
+						<p>My name is Brandyn, and this is my second FOSS4GNA.  This is my first conference talk, so please be kind, as this community has always been</p>
+						<p>Excited to be hear today to talk about map stacks and devops</p>
+					</aside>
 				</section>
 
 				<!-- ATTENTION -->
 				<!-- Arrest attention immediately with a startling statement, a probing question or moving story. -->
 				<section>
 					<section data-background-image="images/Screenshot-2018-5-13-NYPL-Labs.png">
+						<aside class="notes">
+							<p>Background on why I am talking about devops today</p>
+							<p>Working as a small-scale enterprise GIS for the Operations and Maintenance of a park in New York City</p>
+							<p>Preparing to move on, thinking a lot about how to build maintainable, sustainable systems</p>
+							<p>Starting last fall we saw the NYPL Labs drop funding of their development of a Space/Time Directory of NYC</p>
+							<p>What happens to tools/systems after development ends?</p>
+						</aside>
 					</section>
 					<section data-background-image="images/mapzen-shutdown.png">
 						<img class="fragment" src="images/frightened.gif" alt="">
@@ -51,13 +65,22 @@
 								<li style="list-style-type: none;"><a href="https://mapzen.com/blog/a-letter-just-to-you/">Part III</a></li>
 							</ol>
 						</div>
+						<aside class="notes">
+							<p>Then, the shockwave heard 'round the open geo world came into our inboxes</p>
+							<p>After appropriate mourning...</p>
+							<p>The big questions became what would happen to the amazing products & services Mapzen had developed</p>
+						</aside>
 					</section>
 					<section>
 						<img src="images/dees-mapzen-contribution-os.png" alt="Ian Dees Mapzen Plea">
+						<aside class="notes">Fortunately...</aside>
 					</section>
 					<section data-background-image="images/12-seconds-later.jpg">
 					</section>
 					<section data-background-image="images/Screenshot-2018-5-14-geocode-earth.jpg">
+						<aside class="notes">
+							<p>The Pelias team immediately stood up the geocoding services as geocode.earth</p>
+						</aside>
 					</section>
 					<section>
 						<h3>Operations & Maintenance</h3>
@@ -65,9 +88,15 @@
 							&ldquo;<strong>40–90% of the total costs of a system are incurred after birth.</strong>
 							<footer><p style="font-size: 0.5em;"><em>Betsy Beyer et al., eds., Site Reliability Engineering: How Google Runs Production Systems, First edition, April 2016 (Sebastopol, CA: Oreilly, 2016).</em></p></footer>
 						</blockquote>
+						<aside class="notes">
+							<p>Which was amazing, but don't they know that "40-90"% total costs go into Operations?</p>
+						</aside>
 					</section>
 					<section>
 						<img src="images/Screenshot-2018-5-14-julian-simoni.png" alt="">
+						<aside class="notes">
+							<h3>OH ...</h3>
+						</aside>
 					</section>
 					<section data-background-image="images/amazed.gif">
 					</section>
@@ -81,6 +110,15 @@
 						<li class="fragment">Introduce Devops Toolbelt</li>
 						<li class="fragment">Benefits for FOSS4G Community</li>
 					</ol>
+					<aside class="notes">
+						<p>Seeing the resiliency of Mapzen</p>
+						<p>While trying to leave a maintainable FOSS4G Enterprise GIS for my organization</p>
+						<p>Made me very interested in how they approached end-of-life</p>
+						<p>To ensure long-term viability of the work put into Mapzen.</p>
+						<p>I believe the Zen of Mapzen was in their Devops approach</p>
+						<p>So in this talk, I am going to cover:</p>
+						<h3>Keeping this high level - other great talks have focused on specifics</h3>
+					</aside>
 				</section>
 
 				<!-- SATISFACTION -->
@@ -91,12 +129,23 @@
 					<section>
 						<h1>Devops</h1>
 						<h1 class="fragment">...what?</h1>
+						<aside class="notes">
+							<h3>So, "DevOps"</h3>
+							<h3>What is it?</h3>
+						</aside>
 					</section>
 					<section>
 						<script type="text/javascript" src="https://ssl.gstatic.com/trends_nrtr/1420_RC05/embed_loader.js"></script>
 					  <script type="text/javascript">
 					    trends.embed.renderExploreWidget("TIMESERIES", {"comparisonItem":[{"keyword":"devops","geo":"","time":"2004-01-01 2018-05-15"}],"category":0,"property":""}, {"exploreQuery":"date=all&q=devops","guestPath":"https://trends.google.com:443/trends/embed/"});
 					  </script>
+						<aside class="notes">
+							<p>Devops can seem intimidating.  It's a bunch of tools, a conference, a professional title...</p>
+							<p>Google Trends show that it's definitely trendy...</p>
+							<p>I probably didn't help that image with the used-car salseman-esque title of this talk...</p>
+							<p>But thank you for coming today despite that.</p>
+							<p>So, let's cut to what it actually is</p>
+						</aside>
 					</section>
 					<!-- Effective Devops Definition -->
 					<section>
@@ -114,6 +163,10 @@
 							<div>
 								<img src="images/effective_devops.jpg" alt="Effective Devops Book">
 							</div>
+							<aside class="notes">
+								<p>Jennifer Davis & Ryn Daniels</p>
+								<p>2016 book, Effective DevOps, define as:</p>
+							</aside>
 					</section>
 					<!-- Devops Handbook 3 Ways -->
 					<section>
@@ -133,6 +186,11 @@
 								<li class="fragment">Continual Learning</li>
 							</ol>
 						</div>
+						<aside class="notes">
+							<p>The Phoenix project project seen as the start of the movement in 2013</p>
+							<p>Followed in 2016 by the Devops handbook with more tactical guidance</p>
+							<p>Both identified 3 ways of devops</p>
+						</aside>
 					</section>
 					<!-- 1st way: flow -->
 					<section>
@@ -141,6 +199,10 @@
 							&ldquo;Our goal is to decrease the amount of time required for changes to be deployed into production and to <strong>increase the reliability and quality of those services</strong>.&rdquo;
 							<footer><p style="font-size: 0.5em;"><em>Gene Kim, The Devops Handbook: How to Create World-Class Agility, Reliability, & Security in Technology Organizations (Portland, OR: IT Revolution Press, LLC, 2016).</em></p></footer>
 						</blockquote>
+						<aside class="notes">
+							<p>The first way is flow:</p>
+							<h3>READ QUOTE</h3>
+						</aside>
 					</section>
 
 					<!-- value stream -->
@@ -149,12 +211,23 @@
 						<p>Where is your value?</p>
 						<img style="max-height: 40vh;" src="images/valuestream.png" alt="Eye of Providence">
 						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+						<aside class="notes">
+							<p>Coming from a manufacturing business model, a huge focus is the technology value stream</p>
+							<p>Where is value in your map stack?</p>
+							<p>It's the maps, data, services, or for educators, your learning outcomes</p>
+							<p>It's at the top of the pyramid - the eye of providence</p>
+							<p>FYI - this bears no relation to Randy Hale, National Treasure</p>
+						</aside>
 					</section>
 					<section>
 						<h3>Flow:  Value Stream</h3>
 						<p>Where is your time spent?</p>
 						<img style="max-height: 40vh;" src="images/valuestream_maps.png" alt="Maps Value Stream">
 						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+						<aside class="notes">
+							<p>The goal is to focus as much of your resources & time on the critical point of the value stream</p>
+							<p>Minimize the resouces spent on the things that go into producing value.</p>
+						</aside>
 					</section>
 
 					<!-- continuous delivery -->
@@ -162,16 +235,31 @@
 							<h3>Flow:  Deployment Pipeline</h3>
 							<p>No Pipeline</p>
 							<img style="max-height: 60vh" src="images/1280px-Hoover_dam_from_air_wikipedia.jpg" alt="Hoover Dam">
+							<aside class="notes">
+								<p>So, to get to focus on the tip of the value pyramid</p>
+								<p>We need to minmize time between development and operations</p>
+								<p>Value is not delivered until it is in production</p>
+								<p>This is how it feels if you have no pipeline</p>
+							</aside>
 						</section>
 						<section>
 							<h3>Flow:  Deployment Pipeline</h3>
 							<p>Some Pipeline</p>
 							<img src="images/panamacanal.gif" alt="Panama Canal">
+							<aside class="notes">
+								<p>Here's how it feels with some sort of pipeline, maybe partially automated</p>
+							</aside>
 						</section>
 						<section>
 							<h3>Flow:  Deployment Pipeline</h3>
 							<p>Automated Pipeline (Continuous Delivery)</p>
 							<img style="max-height: 60vh" src="images/shutterstock_6932572-2.jpg" alt="Missippi Grain">
+							<aside class="notes">
+								<p>And here is the ideal - no roadblocks, continuous delivery</p>
+								<p>Whether we are delivering maps or wheat</p>
+								<p>We want Freedom of the wide open Mississippi</p>
+								<p>If flow is about reliability & quality...</p>
+							</aside>
 						</section>
 
 					<!-- 2nd way: feedback -->
@@ -181,7 +269,11 @@
 							&ldquo;Second Way describes the principles that enable the reciprocal fast and constant feedback from right to left at all stages of the value stream. Our goal is to create an ever <strong>safer and more resilient</strong> system of work.&rdquo;
 							<footer><p style="font-size: 0.5em;"><em>Gene Kim, The Devops Handbook: How to Create World-Class Agility, Reliability, & Security in Technology Organizations (Portland, OR: IT Revolution Press, LLC, 2016).</em></p></footer>
 						</blockquote>
+						<aside class="notes">
+							<p>Second way, feedback, strives for safe and resilient systems</p>
+						</aside>
 					</section>
+
 					<section>
 						<h3>Feedback</h3>
 						<p>Safety & Quality</p>
@@ -190,6 +282,12 @@
 							<li class="fragment">Continuous Integration</li>
 								<ul class="fragment">Automatic testing of proposed changes to systems</ul>
 						</ul>
+						<aside class="notes">
+							<p>The two ways we acheive that are through:  </p>
+							<p>Having these safety measures give you freedom to experiment</p>
+							<p>Because there is confidence of the safety measures in place</p>
+							<p>Which leads to --></p>
+						</aside>
 					</section>
 
 					<!-- 3rd way: continual learning -->
@@ -199,6 +297,13 @@
 							&ldquo;Third Way focuses on creating a culture of continual learning and experimentation. These are the principles that enable constant creation of individual knowledge, which is then turned into team and organizational knowledge.&rdquo;
 							<footer><p style="font-size: 0.5em;"><em>Gene Kim, The Devops Handbook: How to Create World-Class Agility, Reliability, & Security in Technology Organizations (Portland, OR: IT Revolution Press, LLC, 2016).</em></p></footer>
 						</blockquote>
+						<aside class="notes">
+							<p>A culture of learning and experimentation.</p>
+							<p>This is largely about organizational culture</p>
+							<p>As a single-person enterprise gis team, I don't have to much to add to this now</p>
+							<p>But there is something about keeping a 2-pizza-sized team...</p>
+							<p>We'll come back to this.</p>
+						</aside>
 					</section>
 				</section>
 
@@ -207,6 +312,9 @@
 					<section>
 						<h1>Devops</h1>
 						<h1 class="fragment">...why?</h1>
+						<aside class="notes">
+							<p>So we have what devops is, but WHY?</p>
+						</aside>
 					</section>
 
 					<!-- simplicity -->
@@ -216,6 +324,11 @@
 							&ldquo;Simplicity is the ultimate sophistication.&rdquo;<span class="fragment">*</span>
 							<footer><p>—Leonardo da Vinci</p></footer>
 						</blockquote>
+						<aside class="notes">
+							<h3>READ QUOTE</h3>
+							<p>If it was good enough for Da Vinci, it's good enough for our map stacks</p>
+							<h3>THOUGH...DISPUTED</h3>
+						</aside>
 					</section>
 					<section>
 						<blockquote cite="Effective DevOps" style="text-align: left; font-size: 1em">
@@ -225,15 +338,29 @@
 								<p style="font-size: 0.5em;">As quoted in <em>Betsy Beyer et al., eds., Site Reliability Engineering: How Google Runs Production Systems, First edition, April 2016 (Sebastopol, CA: Oreilly, 2016).</em></p>
 							</footer>
 						</blockquote>
+						<aside class="notes">
+							<p>Not disputed, however, is C.A.R. Hoare's statement during his Turing award speech that</p>
+							<h3>READ QUOTE</h3>
+						</aside>
 					</section>
 
 					<!-- complexity -->
 					<section>
 						<h3>What creates complexity?</h3>
+						<aside class="notes">
+							<p>Let's look at where complexity comes from to understand how devops</p>
+							<p>helps us simplify</p>
+						</aside>
 					</section>
 					<section>
 						<h3>State</h3>
 						<img style="max-height: 60vh" src="images/missouri.png" alt="">
+						<aside class="notes">
+							<h3>This is NOT the state causing complexity</h3>
+							<p>But it's FOSS4G and this was the only way</p>
+							<p>I could get a map into this presentation.</p>
+							<p>Thank you QGIS 3 :-)</p>
+						</aside>
 					</section>
 					<section>
 						<h3>State</h3>
@@ -243,11 +370,19 @@
 							<li class="fragment">How many servers are running?</li>
 							<li class="fragment">Which version(s) of Python and GDAL are installed?</li>
 						</ul>
+						<aside class="notes">
+							<p>Here are examples of the state we are talking about</p>
+							<p>This can be confusing, difficult to troubleshoot, and often are hidden</p>
+						</aside>
 					</section>
 					<!-- immutability -->
 					<section>
 						<h2>State Simplified:  Immutability</h2>
 						<img src="images/immutable-afro.jpg" alt="yearbook photo">
+						<aside class="notes">
+							<p>State is simplified by the principle of IMMUTABILITY</p>
+							<h3>Don't Change, Have a great summer, etc.</h3>
+						</aside>
 					</section>
 					<section>
 						<h3>Frontend Immutability: Redux</h3>
@@ -255,6 +390,10 @@
 						<blockquote>
 							<footer><a href="https://medium.com/react-weekly/embracing-immutable-architecture-dc04e3f08543">Embracing Immutable Architecture</a></footer>
 						</blockquote>
+						<aside class="notes">
+							<p>The frontend has dealt with and solved this issue</p>
+							<p>Redux simplified the state of web applications</p>
+						</aside>
 					</section>
 					<section>
 						<h3>Infrastructure Immutability</h3>
@@ -263,6 +402,11 @@
 							<li class="fragment">Don't modify/mutate - destroy and create new</li>
 							<li class="fragment">Make persistent state (PostGIS) explicit and transparent</li>
 						</ul>
+						<aside class="notes">
+							<h3>With a Devops approach</h3>
+							<p>We can get immutability on the backend</p>
+							<p>This reduces the barriers to system maintenance and operations</p>
+						</aside>
 					</section>
 
 				</section>
@@ -273,6 +417,10 @@
 					<section>
 						<h1>Devops</h1>
 						<h1 class="fragment">...how?</h1>
+						<aside class="notes">
+							<h3>SO. FINALLY we can get into the tools</h3>
+							<p>That enable us to simplify in a devops approach</p>
+						</aside>
 					</section>
 
 					<!-- abstraction -->
@@ -281,33 +429,66 @@
 							<li>Abstraction</li>
 							<li>State Management</li>
 						</ol>
+						<aside class="notes">
+							<p>Tooling helps us with 2 things to simplify</p>
+							<p>Abstraction and State Management</p>
+						</aside>
 					</section>
 					<section>
 						<p>Tools simplify by creating useful abstractions</p>
 						<img src="images/gdal-diagram2.svg" alt="gdal-diagram">
+						<aside class="notes">
+							<p>A FOSS4G tool we may be familiar with is GDAL</p>
+							<p>GDAL does more than just this</p>
+							<p>But as a data abstraction library</p>
+							<p>It let's us simply interact with many formats using a common interface</p>
+							<p>ALL formats are exposed as an abstract "LAYER"</p>
+						</aside>
 					</section>
 
 					<section>
 						<h2>Terraform</h2>
 						<img src="images/Screenshot-2018-5-15-Terraform-by-HashiCorp.png" alt="terraform-screenshot">
+						<aside class="notes">
+							<p>The first tool, lowest in the tech stack</p>
+							<p>Is terraform</p>
+						</aside>
 					</section>
 					<section>
 						<p>Terraform abstracts infrastructure & cloud providers</p>
 						<img src="images/terraform_paths.svg" alt="terraform-diagram">
+						<aside class="notes">
+							<p>Similar to how GDAL abstracts data formats as layers</p>
+							<p>Terraform abstracts computing resources</p>
+						</aside>
 					</section>
 					<section>
 						<h2>Terraform State Managment</h2>
 						<p><em>Infrastructure's state stored centrally (AWS S3) in JSON</em></p>
 						<img src="images/terraform-state.png" alt="Terraform State">
+						<aside class="notes">
+							<p>Additionally, it makes our infrastructure state</p>
+							<p>Transparent and predictable</p>
+							<p>Having your infrastructure itself stored as version-controlled code</p>
+							<p>Is a huge win for simplicity</p>
+						</aside>
 					</section>
 					<section>
 						<p>Terraform's Place in Value Stream</p>
 						<img style="max-height: 60vh;" src="images/terraform_valuestream.png" alt="Terraform">
 						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
+						<aside class="notes">
+							<p>Going back to the idea of the value stream or pyramid</p>
+							<p>Terraform makes it easy to deal with the bottom of the stack</p>
+						</aside>
 					</section>
+
 					<section>
 						<p>Example:  Create a Kubernetes Cluster on Google Compute Engine</p>
 						<img src="images/Screenshot-2018-5-15-Google-google_container_cluster-Terraform-by-HashiCorp.png" alt="terraform-diagram">
+						<aside class="notes">
+							<p>Example usage -- lays the foundations for your infrastructure</p>
+						</aside>
 					</section>
 
 					<section data-background-image="images/container-ship.jpg">
@@ -365,11 +546,25 @@
 					<section>
 						<p>Kubernetes as container orchestrator</p>
 						<img style="max-height: 60vh;" src="images/Dublin_Philharmonic_Orchestra_performing_Tchaikovsky's_Symphony_No_4_in_Charlotte,_North_Carolina.jpg" alt="Dublin Philharmonic">
+						<aside class="notes">
+							<h3>Orchestrator metaphor</h3>
+							<h3>Conductor makes sure all containers / musicians are playing in sync</h3>
+							<p>Is constantly listening for anomolies and automatically correcting them on the fly</p>
+							<p>metaphor breaks down when an instrument is out of tune</p>
+							<p>With immutability, orchestrator does not tune instrument - that creates state</p>
+							<p>Would in rockstar fashion smash the violin, then replace it with a new one.</p>
+						</aside>
 					</section>
 					<section>
 						<p>Built to scale</p>
 						<p class="fragment">Scales down or up</p>
 						<img src="images/smallest-violin.gif" alt="Mr. Krabs GIF">
+						<aside class="notes">
+							<p>Kubernetes was designed to minimize Operations and Maintenance</p>
+							<p>Of the most complex systems in technology</p>
+							<p>However, even small-scale users can reap the benefits</p>
+							<p>for dynamic operations by using kubernetes to deploy containers</p>
+						</aside>
 					</section>
 
 					<!-- miles davis -->
@@ -380,6 +575,13 @@
 							<p class="fragment">Not a sustainable model for systems operations and maintenance</p>
 						</div>
 						<img style="text-align: center;" src="images/Miles_Davis_(Antibes_Juan-les-Pins_1963).jpg" alt="Miles Davis">
+						<aside class="notes">
+							<h3>The alternate way</h3>
+							<h3>Jazz is an anti pattern for systems</h3>
+							<p>Works great, but good luck finding the next Miles Davis of GIS</p>
+							<p>To hand over your system to.</p>
+							<h3>See Daniel Fenton's great slides on Kubernetes from Monday</h3>
+						</aside>
 					</section>
 
 				</section>
