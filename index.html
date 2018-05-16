@@ -35,6 +35,44 @@
 					<p class="green2">FOSS4GNA St. Louis</p>
 					<p class="green2">May 16, 2018</p>
 				</section>
+
+				<!-- ATTENTION -->
+				<!-- Arrest attention immediately with a startling statement, a probing question or moving story. -->
+				<section>
+					<section data-background-image="images/Screenshot-2018-5-13-NYPL-Labs.png">
+					</section>
+					<section data-background-image="images/mapzen-shutdown.png">
+						<img class="fragment" src="images/frightened.gif" alt="">
+						<div class="fragment" style="background-color: rgba(243, 235, 174, 0.8);">
+							<p>Post Mortems by Randy Meech</p>
+							<ol>
+								<li style="list-style-type: none;"><a href="https://mapzen.com/blog/east-coker/">Part I</a></li>
+								<li style="list-style-type: none;"><a href="https://mapzen.com/blog/magna-carto/">Part II</a></li>
+								<li style="list-style-type: none;"><a href="https://mapzen.com/blog/a-letter-just-to-you/">Part III</a></li>
+							</ol>
+						</div>
+					</section>
+					<section>
+						<img src="images/dees-mapzen-contribution-os.png" alt="Ian Dees Mapzen Plea">
+					</section>
+					<section data-background-image="images/12-seconds-later.jpg">
+					</section>
+					<section data-background-image="images/Screenshot-2018-5-14-geocode-earth.jpg">
+					</section>
+					<section>
+						<h3>Operations & Maintenance</h3>
+						<blockquote cite="http://shop.oreilly.com/product/0636920039846.do" style="text-align: left; font-size: 0.6em">
+							&ldquo;<strong>40–90% of the total costs of a system are incurred after birth.</strong>
+							<footer><p style="font-size: 0.5em;"><em>Betsy Beyer et al., eds., Site Reliability Engineering: How Google Runs Production Systems, First edition, April 2016 (Sebastopol, CA: Oreilly, 2016).</em></p></footer>
+						</blockquote>
+					</section>
+					<section>
+						<img src="images/Screenshot-2018-5-14-julian-simoni.png" alt="">
+					</section>
+					<section data-background-image="images/amazed.gif">
+					</section>
+				</section>
+
 				<section>
 					<h1>Goals</h1>
 					<ol>
@@ -43,32 +81,6 @@
 						<li class="fragment">Introduce Devops Toolbelt</li>
 						<li class="fragment">Benefits for FOSS4G Community</li>
 					</ol>
-				</section>
-
-				<!-- ATTENTION -->
-				<!-- Arrest attention immediately with a startling statement, a probing question or moving story. -->
-				<section>
-					<section data-background-image="images/Screenshot-2018-5-13-NYPL-Labs.png">
-					</section>
-					<section data-background-image="images/mapzen-shutdown.png">
-					</section>
-					<section>
-						<img src="images/dees-mapzen-contribution-os.png" alt="Ian Dees Mapzen Plea">
-					</section>
-					<section data-background-image="images/12-seconds-later.jpg">
-					</section>
-					<section data-background-image="images/Screenshot-2018-5-14-geocode-earth.jpg">
-						<img style="opacity: 0.9" class="fragment" src="images/Screenshot-2018-5-14-julian-simoni.png" alt="">
-					</section>
-				</section>
-
-
-				<!-- NEED -->
-				<section>
-					<blockquote cite="http://shop.oreilly.com/product/0636920039846.do" style="text-align: left; font-size: 0.6em">
-						&ldquo;<strong>40–90% of the total costs of a system are incurred after birth.</strong>.
-						<footer><p style="font-size: 0.5em;"><em>Betsy Beyer et al., eds., Site Reliability Engineering: How Google Runs Production Systems, First edition, April 2016 (Sebastopol, CA: Oreilly, 2016).</em></p></footer>
-					</blockquote>
 				</section>
 
 				<!-- SATISFACTION -->
@@ -126,35 +138,37 @@
 					<section>
 						<h3>Flow</h3>
 						<blockquote cite="DevOps Handbook">
-							Our goal is to decrease the amount of time required for changes to be deployed into production and to increase the reliability and quality of those services.
+							Our goal is to decrease the amount of time required for changes to be deployed into production and to <strong>increase the reliability and quality of those services</strong>.
 						</blockquote>
 					</section>
 
 					<!-- value stream -->
 					<section>
-						<h3>Value Stream</h3>
-						<img style="max-height: 60vh;" src="images/valuestream.png" alt="Eye of Providence">
+						<h3>Flow:  Value Stream</h3>
+						<p>Where is your value?</p>
+						<img style="max-height: 40vh;" src="images/valuestream.png" alt="Eye of Providence">
 						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
 					</section>
 					<section>
-						<h3>Value Stream</h3>
-						<img style="max-height: 60vh;" src="images/valuestream_maps.png" alt="Maps Value Stream">
+						<h3>Flow:  Value Stream</h3>
+						<p>Where is your time spent?</p>
+						<img style="max-height: 40vh;" src="images/valuestream_maps.png" alt="Maps Value Stream">
 						<p style="font-size: 0.5em;">Adapted from Figure 1-1, <em>Justin Garrison and Kris Nova, Cloud Native Infrastructure (Beijing Boston Farnham Sebastopol Tokyo: O’Reilly, 2017).</em></p>
 					</section>
 
 					<!-- continuous delivery -->
 					<section>
-							<h3>Deployment Pipeline</h3>
+							<h3>Flow:  Deployment Pipeline</h3>
 							<p>No Pipeline</p>
 							<img style="max-height: 60vh" src="images/1280px-Hoover_dam_from_air_wikipedia.jpg" alt="Hoover Dam">
 						</section>
 						<section>
-							<h3>Deployment Pipeline</h3>
+							<h3>Flow:  Deployment Pipeline</h3>
 							<p>Some Pipeline</p>
 							<img src="images/panamacanal.gif" alt="Panama Canal">
 						</section>
 						<section>
-							<h3>Deployment Pipeline</h3>
+							<h3>Flow:  Deployment Pipeline</h3>
 							<p>Automated Pipeline (Continuous Delivery)</p>
 							<img style="max-height: 60vh" src="images/shutterstock_6932572-2.jpg" alt="Missippi Grain">
 						</section>
@@ -163,11 +177,19 @@
 					<section>
 						<h3>Feedback</h3>
 						<blockquote cite="DevOps Handbook">
-							Second Way describes the principles that enable the reciprocal fast and constant feedback from right to left at all stages of the value stream. Our goal is to create an ever safer and more resilient system of work.
+							Second Way describes the principles that enable the reciprocal fast and constant feedback from right to left at all stages of the value stream. Our goal is to create an ever <strong>safer and more resilient</strong> system of work.
 						</blockquote>
 					</section>
 					<section>
+						<h3>Feedback</h3>
+						<p>Safety & Quality</p>
+						<ul>
+							<li class="fragment">Continuous monitoring of running systems</li>
+							<li class="fragment">Continuous Integration</li>
+								<ul class="fragment">Automatic testing of proposed changes to systems</ul>
+						</ul>
 					</section>
+
 					<!-- 3rd way: continual learning -->
 					<section>
 						<h3>Continual Learning & Experimentation</h3>
@@ -303,7 +325,12 @@
 
 					<!-- miles davis -->
 					<section>
-						<img src="images/Miles_Davis_(Antibes_Juan-les-Pins_1963).jpg" alt="Miles Davis">
+						<div style="text-align: left;">
+							<p class="fragment">Equally beautiful</p>
+							<p class="fragment">Not predictable</p>
+							<p class="fragment">Not a sustainable model for systems operations and maintenance</p>
+						</div>
+						<img style="text-align: center;" src="images/Miles_Davis_(Antibes_Juan-les-Pins_1963).jpg" alt="Miles Davis">
 					</section>
 
 				</section>
@@ -317,7 +344,7 @@
 					<section>
 						<h3>Open Source Software</h3>
 						<ul>
-							<li class="fragment"><strong>The What (development):</strong>  the software itself (PostGIS, GeoServer, Tegola Tile Server, etc.)</li>
+							<li class="fragment"><strong>The What (development):</strong>  the software itself (PostGIS, GeoServer, Pelias, Tegola, etc.)</li>
 							<li class="fragment"><strong>The How (operations):</strong>  the process of creating, operating, and maintaining a software/information system</li>
 							<li class="fragment"><strong>The Why:</strong>  the unique use cases - the value produced by mapping software</li>
 						</ul>
